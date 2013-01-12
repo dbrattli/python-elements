@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE wap-provisioningdoc PUBLIC "-//WAPFORUM//DTD PROV 1.0//EN" "http://www.wapforum.org/DTD/prov.dtd">
+<wap-provisioningdoc version="1.0">
+  <characteristic type="BOOTSTRAP">
+    <parm name="NAME" value="${sync_name}"/>
+  </characteristic>
+  <characteristic type="APPLICATION">
+    <parm name="APPID" value="w5"/>
+    <parm name="PROVIDER-ID" value="${server_id}"/>
+    <parm name="TO-NAPID" value="INTERNET" />
+    <parm name="NAME" value="${sync_name}"/>
+    <parm name="ADDR" value="${sync_address}"/>
+
+    <characteristic type="APPAUTH">
+      <parm name="AAUTHLEVEL" value="APPSRV"/>
+      <parm name="AAUTHTYPE" value="DIGEST"/>
+      <parm name="AAUTHDATA" value="NONCE"/>
+      <parm name="AAUTHNAME" value="username"/>
+      <parm name="AAUTHSECRET" value="password"/>
+    </characteristic>
+
+    <characteristic type="APPAUTH">
+      <parm name="AAUTHLEVEL" value="CLIENT"/>
+      <parm name="AAUTHNAME" value="${server_id}"/>
+    </characteristic>
+
+    <characteristic type="APPAUTH">
+      <parm name="AAUTHLEVEL" value="APPSRV"/>
+      <parm name="AAUTHNAME" value="${server_id}"/>
+    </characteristic>
+
+    <characteristic type="APPAUTH">
+      <parm name="AAUTHLEVEL" value="CLIENT"/>
+      <parm name="AAUTHTYPE" value="DIGEST"/>
+      <parm name="AAUTHDATA" value="NONCE"/>
+      <parm name="AAUTHNAME" value="username"/>
+      <parm name="AAUTHSECRET" value="password"/>
+    </characteristic>
+
+    <characteristic type="RESOURCE">
+      <parm name="URI" value="${database['uri']}"/>
+      <parm name="NAME" value="${database['name']}"/>
+      <parm name="AACCEPT" value="${database['ctype']}"/>
+    </characteristic>
+  </characteristic>
+</wap-provisioningdoc>
